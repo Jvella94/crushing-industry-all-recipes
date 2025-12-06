@@ -1,6 +1,6 @@
 # Crushing Industry — All Recipes
 
-Compact Factorio mod that creates alternate "-crushed" and "-vanilla" recipe variants for existing recipes by swapping ingredients (or removing added ingredients such as glass). Users can choose which variant is the default via a startup setting.
+This mod configurably restores the vanilla recipes removed by Crushing Industry, allowing the player the choice of both. You can choose which variant is the default via the settings. There is also the optional choice of adding all 3 crusher variants (Vanilla, Crushing w/wo Quality) if you've enabled the Space Crusher setting on Crushing Industry. If Muluna is installed, all 3 variants are available for the Crusher 2 as well.
 
 ## Features
 
