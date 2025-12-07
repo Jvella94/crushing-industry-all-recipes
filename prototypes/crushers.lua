@@ -46,7 +46,7 @@ local function create_vanilla_crusher ()
         table.remove(recipe.ingredients, #recipe.ingredients)
     end
     data:extend({recipe})
-    if not mods["planet-muluna"] then
+    if mods["planet-muluna"] then
         ftech.add_unlock("crusher", recipe.name)
     else
         ftech.add_unlock("space-crushing", recipe.name)
@@ -127,7 +127,7 @@ local function create_alternate_crusher()
     recipe.results ={{ type = "item", name = altSpaceCrusher.name, amount = 1}}
     recipe.subgroup = subgroup
     data:extend({recipe})
-    if not mods["planet-muluna"] then
+    if mods["planet-muluna"] then
         ftech.add_unlock("crusher", recipe.name)
     else
         ftech.add_unlock("space-crushing", recipe.name)
