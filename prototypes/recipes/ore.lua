@@ -18,5 +18,5 @@ if mods["scrap-industry"] and mods["scrap-industry"] >= "0.8.0" then
 end
 
 if mods["molten-tungsten"] then
-    duplicate_recipe_and_replace_ingredient("molten-tungsten", "__molten-tungsten__/graphics/molten-tungsten.png", "tungsten-ore", 50, "crushed-tungsten-ore", 75)
+    duplicate_recipe_and_replace_ingredient("molten-tungsten", "__molten-tungsten__/graphics/molten-tungsten.png", "tungsten-ore", 50, "crushed-tungsten-ore", 75, "__crushing-industry__/graphics/icons/crushed-tungsten-ore.png")
 end

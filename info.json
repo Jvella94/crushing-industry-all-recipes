@@ -1,6 +1,6 @@
 {
   "name": "crushing-industry-all-recipes",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Crushing Industry - All Recipes and Crushers",
   "author": "Averax",
   "factorio_version": "2.0",
@@ -10,7 +10,8 @@
     "fdsl >= 0.2.2",
     "crushing-industry >= 0.4.21",
     "? space-age",
-    "? planet-muluna"
+    "? planet-muluna",
+    "? molten-tungsten"
   ],
   "package": {
     "ignore": ["README.md", "LICENSE"]
