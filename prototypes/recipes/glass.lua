@@ -13,6 +13,6 @@ if mods["space-age"] then
     duplicate_recipe_and_remove_ingredient("agricultural-tower", "__space-age__/graphics/icons/agricultural-tower.png", "glass", "__crushing-industry__/graphics/icons/glass.png")
     duplicate_recipe_and_remove_ingredient("cryogenic-plant", "__space-age__/graphics/icons/cryogenic-plant.png", "glass", "__crushing-industry__/graphics/icons/glass.png")
     if settings.startup["crushing-industry-byproducts"].value and not mods["science-bottles"] then
-        duplicate_recipe_and_remove_ingredient("space-science-pack", "__space-age__/graphics/icons/space-science-pack.png", "glass", "__crushing-industry__/graphics/icons/glass.png")
+        duplicate_recipe_and_remove_ingredient("space-science-pack", "__base__/graphics/icons/space-science-pack.png", "glass", "__crushing-industry__/graphics/icons/glass.png")
     end
 end
