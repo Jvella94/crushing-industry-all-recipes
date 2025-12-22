@@ -1,0 +1,44 @@
+{
+  "recipe": [
+    ["holmium-solution-crushed", "holmium-solution-modded"],
+    ["electrolyte-crushed", "electrolyte-modded"],
+    ["concrete-crushed", "concrete-modded"],
+    ["molten-iron-crushed", "molten-iron-modded"],
+    ["molten-copper-crushed", "molten-copper-modded"],
+    ["molten-tungsten-crushed", "molten-tungsten-modded"],
+    ["advanced-thruster-oxidizer-crushed", "advanced-thruster-oxidizer-modded"],
+    ["tungsten-plate-crushed", "tungsten-plate-modded"],
+
+    ["lab-crushed", "lab-modded"],
+    ["chemical-plant-crushed", "chemical-plant-modded"],
+    ["solar-panel-crushed", "solar-panel-modded"],
+    ["night-vision-equipment-crushed", "night-vision-equipment-modded"],
+    ["display-panel-crushed", "display-panel-modded"],
+    ["small-lamp-crushed", "small-lamp-modded"],
+    ["laser-turret-crushed", "laser-turret-modded"],
+    ["rail-signal-crushed", "rail-signal-modded"],
+    ["rail-chain-signal-crushed", "rail-chain-signal-modded"],
+
+    ["biochamber-crushed", "biochamber-modded"],
+    ["agricultural-tower-crushed", "agricultural-tower-modded"],
+    ["cryogenic-plant-crushed", "cryogenic-plant-modded"],
+    ["space-science-pack-crushed", "space-science-pack-modded"],
+
+    ["coal-liquefaction-crushed", "coal-liquefaction-modded"],
+    ["explosives-crushed", "explosives-modded"],
+    ["plastic-bar-crushed", "plastic-bar-modded"],
+    ["poison-capsule-crushed", "poison-capsule-modded"],
+    ["slowdown-capsule-crushed", "slowdown-capsule-modded"],
+    ["carbon-crushed", "carbon-modded"],
+
+    ["advanced-circuit-crushed", "advanced-circuit-modded"],
+    ["processing-unit-crushed", "processing-unit-modded"],
+    ["selector-combinator-crushed", "selector-combinator-modded"],
+    ["roboport-crushed", "roboport-modded"],
+    [
+      "personal-roboport-equipment-crushed",
+      "personal-roboport-equipment-modded"
+    ],
+    ["beacon-crushed", "beacon-modded"]
+  ]
+}

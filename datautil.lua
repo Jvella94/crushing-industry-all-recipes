@@ -56,11 +56,11 @@ end
 function duplicate_recipe_and_replace_ingredient(original_recipe_name, original_recipe_icon, original_ingredient_name, original_ingredient_amount, crushed_ingredient_name, crushed_ingredient_amount, crushed_ingredient_icon)
     if restore_vanilla then
         -- default behavior: leave original recipe as vanilla (restore if it used crushed),
-        -- create a new "-crushed" variant that uses crushed ingredients and gets an overlay icon
+        -- create a new "-modded" variant that uses crushed ingredients and gets an overlay icon
         frep.replace_ingredient(original_recipe_name, crushed_ingredient_name, {type="item", name=original_ingredient_name, amount=original_ingredient_amount})
         local original_recipe = data.raw.recipe[original_recipe_name]
         local new_recipe = table.deepcopy(original_recipe)
-        new_recipe.name = original_recipe_name .. "-crushed"
+        new_recipe.name = original_recipe_name .. "-modded"
         new_recipe.icons = makeLayeredIcon(original_recipe_icon, crushed_ingredient_icon, false)
         data:extend{new_recipe}
         copy_recipe_unlock(original_recipe_name, new_recipe.name)
@@ -79,7 +79,7 @@ function duplicate_recipe_and_replace_ingredient(original_recipe_name, original_
         copy_recipe_unlock(original_recipe_name, new_recipe.name)
         -- restore the vanilla ingredient on the "-vanilla" copy
         frep.replace_ingredient(new_recipe.name, crushed_ingredient_name, {type="item", name=original_ingredient_name, amount=original_ingredient_amount})
-        data.raw.recipe[original_recipe_name].icons = makeLayeredIcon(original_recipe_icon, crushed_ingredient_icon, false)
+        original_recipe.icons = makeLayeredIcon(original_recipe_icon, crushed_ingredient_icon, false)
     end
 end
 
@@ -87,10 +87,10 @@ end
 function duplicate_recipe_and_remove_ingredient(original_recipe_name, original_recipe_icon, crushed_ingredient_name, crushed_ingredient_icon)
     if restore_vanilla then
         -- default behavior: leave original recipe as vanilla,
-        -- create a new "-crushed" variant that uses crushed ingredients and gets an overlay icon
+        -- create a new "-modded" variant that uses crushed ingredients and gets an overlay icon
         local original_recipe = data.raw.recipe[original_recipe_name]
         local new_recipe = table.deepcopy(original_recipe)
-        new_recipe.name = original_recipe_name .. "-crushed"
+        new_recipe.name = original_recipe_name .. "-modded"
         new_recipe.icons = makeLayeredIcon(original_recipe_icon, crushed_ingredient_icon, false)
         data:extend{new_recipe}
         copy_recipe_unlock(original_recipe_name, new_recipe.name)
@@ -108,6 +108,6 @@ function duplicate_recipe_and_remove_ingredient(original_recipe_name, original_r
         -- restore the vanilla ingredient on the "-vanilla" copy
         frep.remove_ingredient(new_recipe.name, crushed_ingredient_name)
         -- set the original recipe's icon to show the crushed ingredient overlay
-        data.raw.recipe[original_recipe_name] = makeLayeredIcon(original_recipe_icon, crushed_ingredient_icon, false)
+        original_recipe.icons = makeLayeredIcon(original_recipe_icon, crushed_ingredient_icon, false)
     end
 end

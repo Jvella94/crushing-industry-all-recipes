@@ -3,7 +3,6 @@ local frep = require("__fdsl__.lib.recipe")
 local subgroup = mods["planet-muluna"] and "smelting-machine" or "space-platform"
 local order = mods["planet-muluna"] and "ca[crusher]" or "e[crusher]"
 local muluna_restriction = {
-    
     {
         property = "gravity",
         max = 0.1,

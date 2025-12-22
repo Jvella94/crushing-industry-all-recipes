@@ -1,4 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.0
+Date: 2025-12-22
+
+  Features:
+    - Added migration as legacy '-crushed' recipe IDs are now '-modded' IDs (migrations/1.2.0.json)
+    - Added compatability with Crushing Industry 0.5 and new Optical Fiber recipes.
+    - Added setting to toggler Optical Fiber recipes.
+    - Added icons to most settings in the mod settings menu.
+  Bugfixes:
+    - Fixed replacing entire recipe when assigning overlay icons and not restoring vanilla recipes.
+---------------------------------------------------------------------------------------------------
 Version: 1.1.2
 Date: 2025-12-08
 

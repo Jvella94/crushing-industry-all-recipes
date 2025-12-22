@@ -29,6 +29,13 @@ data:extend({
     },
     {
         type = "bool-setting",
+        name = "restore-optical-fiber-recipes",
+        setting_type = "startup",
+        default_value = false,
+        order = "d-a"
+    },
+    {
+        type = "bool-setting",
         name = "unlock-crusher-recipes",
         setting_type = "startup",
         default_value = false,
