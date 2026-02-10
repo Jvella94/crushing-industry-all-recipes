@@ -36,6 +36,13 @@ data:extend({
     },
     {
         type = "bool-setting",
+        name = "restore-concrete-mix-recipes",
+        setting_type = "startup",
+        default_value = false,
+        order = "d-b"
+    },
+    {
+        type = "bool-setting",
         name = "unlock-crusher-recipes",
         setting_type = "startup",
         default_value = false,

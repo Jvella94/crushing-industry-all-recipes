@@ -5,6 +5,9 @@ if settings.startup["crushing-industry-glass"].value and settings.startup["resto
         require("prototypes.recipes.optical_fiber")
     end
 end
+if settings.startup["crushing-industry-concrete-mix"].value and settings.startup["restore-concrete-mix-recipes"].value then
+    require("prototypes.recipes.concrete")
+end
 if settings.startup["crushing-industry-ore"].value and settings.startup["restore-ore-recipes"].value then
     require("prototypes.recipes.ore")
 end

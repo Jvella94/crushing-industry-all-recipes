@@ -1,6 +1,6 @@
 {
   "name": "crushing-industry-all-recipes",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "title": "Crushing Industry - All Recipes and Crushers",
   "author": "Averax",
   "factorio_version": "2.0",
@@ -14,6 +14,9 @@
     "? molten-tungsten"
   ],
   "package": {
-    "ignore": ["README.md", "LICENSE"]
+    "ignore": [
+      "README.md",
+      "LICENSE"
+    ]
   }
 }

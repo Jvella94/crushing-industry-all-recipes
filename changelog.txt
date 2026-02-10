@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.1
+Date: 2026-02-10
+
+  Features:
+    - Added concrete mix recipes (both original and crushed variants) to the mod.
+  Bugfixes:
+    - Fixed incorrect recipe replacement for concrete mix recipes.
+
+---------------------------------------------------------------------------------------------------
 Version: 1.2.0
 Date: 2025-12-22
 
