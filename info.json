@@ -11,9 +11,13 @@
     "crushing-industry >= 0.5.0",
     "? space-age",
     "? planet-muluna",
-    "? molten-tungsten"
+    "? molten-tungsten",
+    "? SpaceAgeWithoutSpace"
   ],
   "package": {
-    "ignore": ["README.md", "LICENSE"]
+    "ignore": [
+      "README.md",
+      "LICENSE"
+    ]
   }
 }
