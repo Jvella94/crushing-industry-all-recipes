@@ -15,11 +15,17 @@ if mods["space-age"] then
     end
     duplicate_recipe_and_replace_ingredient("advanced-thruster-oxidizer", "__space-age__/graphics/icons/fluid/thruster-oxidizer.png", "iron-ore", 2, "crushed-iron-ore", 4, "__crushing-industry__/graphics/icons/crushed-iron-ore.png")
 end
-
 if mods["scrap-industry"] and mods["scrap-industry"] >= "0.8.0" then
     duplicate_recipe_and_replace_ingredient("fluoroketone", "__space-age__/graphics/icons/fluid/fluoroketone-hot.png", "lithium", 1, "lithium-dust", 2, "__scrap-industry__/graphics/icons/lithium-powder.png")
 end
 
 if mods["molten-tungsten"] then
     duplicate_recipe_and_replace_ingredient("molten-tungsten", "__molten-tungsten__/graphics/molten-tungsten.png", "tungsten-ore", 50, "crushed-tungsten-ore", 75, "__crushing-industry__/graphics/icons/crushed-tungsten-ore.png")
+end
+if settings.startup["crushing-industry-concrete-mix"].value then
+    local ftech = require("__fdsl__.lib.technology")
+    ftech.add_unlock("concrete", "concrete-mix")
+    duplicate_recipe_and_replace_ingredient("concrete-mix", "__crushing-industry__/graphics/icons/fluid/concrete-mix.png", "iron-ore", 1, "crushed-iron-ore", 2, "__crushing-industry__/graphics/icons/crushed-iron-ore.png")
+else
+    duplicate_recipe_and_replace_ingredient("concrete", "__base__/graphics/icons/concrete.png", "iron-ore", 1, "crushed-iron-ore", 2, "__crushing-industry__/graphics/icons/crushed-iron-ore.png")
 end
