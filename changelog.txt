@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.2
+Date: 2026-02-19
+  Features:
+    - Added full compatability for Enriching Industry 0.1.0. Optional depedency has been locked to that version as author has mentioned big changes.
+    - Each enriched recipe has 3 variants with icons to denote the ingredient differences.
+    - Small refactor to remove extra param from method.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.1
 Date: 2026-02-10
 

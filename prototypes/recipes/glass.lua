@@ -1,6 +1,6 @@
 log("Creating glass recipes")
 duplicate_recipe_and_remove_ingredient("lab", "__base__/graphics/icons/lab.png", "glass", "__crushing-industry__/graphics/icons/glass.png")
-duplicate_recipe_and_replace_ingredient("chemical-plant", "__base__/graphics/icons/chemical-plant.png","iron-gear-wheel",5, "glass", 10, "__crushing-industry__/graphics/icons/glass.png")
+duplicate_recipe_and_replace_ingredient("chemical-plant", "__base__/graphics/icons/chemical-plant.png", "iron-gear-wheel", 5, "glass", "__crushing-industry__/graphics/icons/glass.png")
 duplicate_recipe_and_remove_ingredient("solar-panel", "__base__/graphics/icons/solar-panel.png", "glass", "__crushing-industry__/graphics/icons/glass.png")
 duplicate_recipe_and_remove_ingredient("night-vision-equipment", "__base__/graphics/icons/night-vision-equipment.png", "glass", "__crushing-industry__/graphics/icons/glass.png")
 duplicate_recipe_and_remove_ingredient("display-panel", "__base__/graphics/icons/display-panel.png", "glass", "__crushing-industry__/graphics/icons/glass.png")

@@ -41,55 +41,57 @@ function copy_recipe_unlock(old_recipe, new_recipe)
     end
 end
 
-function restore_another_vanilla_ingredient(original_recipe_name, vanilla_ingredient_name, vanilla_ingredient_amount, crushed_ingredient_name)
+function restore_another_vanilla_ingredient(original_recipe_name, vanilla_ingredient_name, vanilla_ingredient_amount, crushed_ingredient_name, suffix)
     if restore_vanilla then
         -- original remains vanilla; replace any crushed ingredient references back to the vanilla one
         frep.replace_ingredient(original_recipe_name, crushed_ingredient_name, { type = "item", name = vanilla_ingredient_name, amount = vanilla_ingredient_amount })
     else
         -- reversed mode: the vanilla recipe was created as "-vanilla"
-        local target = original_recipe_name .. "-vanilla"
+        suffix = suffix or 0                                                 -- Default to 0 (no effect); use nil explicitly to skip
+        local suffix_str = (suffix ~= 0) and ("-" .. tostring(suffix)) or "" -- Convert to "-N" or empty
+        local target = original_recipe_name .. "-vanilla" .. suffix_str
         frep.replace_ingredient(target, crushed_ingredient_name, { type = "item", name = vanilla_ingredient_name, amount = vanilla_ingredient_amount })
     end
 end
 
 -- Duplicates the recipe and replaces ingredient added by Crushing Industry
-function duplicate_recipe_and_replace_ingredient(original_recipe_name, original_recipe_icon, original_ingredient_name, original_ingredient_amount, crushed_ingredient_name, crushed_ingredient_amount, crushed_ingredient_icon)
+function duplicate_recipe_and_replace_ingredient(original_recipe_name, original_recipe_icon, original_ingredient_name, original_ingredient_amount,
+                                                 crushed_ingredient_name, crushed_ingredient_icon, suffix)
+    suffix = suffix or 0                                                 -- Default to 0 (no effect); use nil explicitly to skip
+    local suffix_str = (suffix ~= 0) and ("-" .. tostring(suffix)) or "" -- Convert to "-N" or empty
+    local original_recipe = data.raw.recipe[original_recipe_name]
+    local new_recipe = table.deepcopy(original_recipe)
     if restore_vanilla then
-        -- default behavior: leave original recipe as vanilla (restore if it used crushed),
-        -- create a new "-modded" variant that uses crushed ingredients and gets an overlay icon
-        frep.replace_ingredient(original_recipe_name, crushed_ingredient_name, { type = "item", name = original_ingredient_name, amount = original_ingredient_amount })
-        local original_recipe = data.raw.recipe[original_recipe_name]
-        local new_recipe = table.deepcopy(original_recipe)
-        new_recipe.name = original_recipe_name .. "-modded"
+        new_recipe.name = original_recipe_name .. "-modded" .. suffix_str -- Append suffix here
         new_recipe.icons = makeLayeredIcon(original_recipe_icon, crushed_ingredient_icon, false)
         data:extend { new_recipe }
         copy_recipe_unlock(original_recipe_name, new_recipe.name)
-        frep.replace_ingredient(new_recipe.name, original_ingredient_name, { type = "item", name = crushed_ingredient_name, amount = crushed_ingredient_amount })
+        frep.replace_ingredient(original_recipe_name, crushed_ingredient_name, { type = "item", name = original_ingredient_name, amount = original_ingredient_amount })
     else
-        -- reversed behavior: make the original recipe use crushed ingredients (crushed becomes the default),
-        -- and create a "-vanilla" copy that contains the original (vanilla) ingredients and icon
-        -- frep.replace_ingredient(original_recipe_name, original_ingredient_name, {type="item", name=crushed_ingredient_name, amount=crushed_ingredient_amount})
-        local original_recipe = data.raw.recipe[original_recipe_name]
-        -- set the original recipe's icon to show the crushed overlay (so default name corresponds to crushed)
-        local new_recipe = table.deepcopy(original_recipe)
-        new_recipe.name = original_recipe_name .. "-vanilla"
-        -- give the vanilla copy the plain original icon
-        new_recipe.icons = { { icon = original_recipe_icon } }
+        new_recipe.name = original_recipe_name .. "-vanilla" .. suffix_str -- And here
+        if suffix ~= 0 then
+            new_recipe.icons = makeLayeredIcon(original_recipe_icon, crushed_ingredient_icon, false)
+        else
+            new_recipe.icons = { { icon = original_recipe_icon } }
+        end
         data:extend { new_recipe }
         copy_recipe_unlock(original_recipe_name, new_recipe.name)
-        -- restore the vanilla ingredient on the "-vanilla" copy
+        log("Replacing ingredient in recipe " .. new_recipe.name)
         frep.replace_ingredient(new_recipe.name, crushed_ingredient_name, { type = "item", name = original_ingredient_name, amount = original_ingredient_amount })
-        original_recipe.icons = makeLayeredIcon(original_recipe_icon, crushed_ingredient_icon, false)
+        log("Setting icon to original recipe " .. original_recipe_name .. " of crushed_ingredient_icon " .. crushed_ingredient_icon)
+        if suffix == 0 then
+            original_recipe.icons = makeLayeredIcon(original_recipe_icon, crushed_ingredient_icon, false)
+        end
     end
 end
 
 -- Duplicates the recipe and removes ingredient added by Crushing Industry
 function duplicate_recipe_and_remove_ingredient(original_recipe_name, original_recipe_icon, crushed_ingredient_name, crushed_ingredient_icon)
+    local original_recipe = data.raw.recipe[original_recipe_name]
+    local new_recipe = table.deepcopy(original_recipe)
     if restore_vanilla then
         -- default behavior: leave original recipe as vanilla,
         -- create a new "-modded" variant that uses crushed ingredients and gets an overlay icon
-        local original_recipe = data.raw.recipe[original_recipe_name]
-        local new_recipe = table.deepcopy(original_recipe)
         new_recipe.name = original_recipe_name .. "-modded"
         new_recipe.icons = makeLayeredIcon(original_recipe_icon, crushed_ingredient_icon, false)
         data:extend { new_recipe }
@@ -98,11 +100,9 @@ function duplicate_recipe_and_remove_ingredient(original_recipe_name, original_r
     else
         -- reversed behavior: keep the original recipe using crushed ingredients (crushed becomes the default),
         -- and create a "-vanilla" copy that contains the original (vanilla) ingredients and icon
-        local original_recipe = data.raw.recipe[original_recipe_name]
-        local new_recipe = table.deepcopy(original_recipe)
         new_recipe.name = original_recipe_name .. "-vanilla"
         -- give the vanilla copy the plain original icon
-        new_recipe.icons = { { icon = original_recipe_icon } }
+        new_recipe.icons = (original_recipe.icons ~= nil) and (original_recipe.icons) or ({ { icon = original_recipe_icon } })
         data:extend { new_recipe }
         copy_recipe_unlock(original_recipe_name, new_recipe.name)
         -- restore the vanilla ingredient on the "-vanilla" copy
