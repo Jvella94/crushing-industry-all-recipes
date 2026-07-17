@@ -15,30 +15,26 @@ local moltenCopperIcon = "__space-age__/graphics/icons/fluid/molten-copper.png"
 local tungstenPlateIcon = "__space-age__/graphics/icons/tungsten-plate.png"
 
 local restore_vanilla = settings.startup["restore-recipes-to-vanilla"].value
-duplicate_recipe_and_replace_ingredient("concrete", "__base__/graphics/icons/concrete.png", "iron-ore", 1, "crushed-iron-ore", crushedIronOreIcon)
-if settings.startup["crushing-industry-concrete-mix"].value then
-    duplicate_recipe_and_replace_ingredient("concrete-mix", "__crushing-industry__/graphics/icons/fluid/concrete-mix.png", "iron-ore", 1, "crushed-iron-ore", crushedIronOreIcon)
-end
 if mods["space-age"] then
     if mods["enriching-industry"] then
         if restore_vanilla then
-            duplicate_recipe_and_replace_ingredient("molten-iron", moltenIronIcon, "crushed-iron-ore", 75, "ei-enriched-iron-ore", enrichedIronOreIcon)
-            duplicate_recipe_and_replace_ingredient("molten-iron", moltenIronIcon, "iron-ore", 50, "crushed-iron-ore", crushedIronOreIcon, 2)
-            duplicate_recipe_and_replace_ingredient("molten-copper", moltenCopperIcon, "crushed-copper-ore", 75, "ei-enriched-copper-ore", enrichedCopperOreIcon)
-            duplicate_recipe_and_replace_ingredient("molten-copper", moltenCopperIcon, "copper-ore", 50, "crushed-copper-ore", crushedCopperOreIcon, 2)
+            duplicate_recipe_and_replace_ingredient("iron-ore-melting", moltenIronIcon, "crushed-iron-ore", 75, "ei-enriched-iron-ore", enrichedIronOreIcon)
+            duplicate_recipe_and_replace_ingredient("iron-ore-melting", moltenIronIcon, "iron-ore", 50, "crushed-iron-ore", crushedIronOreIcon, 2)
+            duplicate_recipe_and_replace_ingredient("copper-ore-melting", moltenCopperIcon, "crushed-copper-ore", 75, "ei-enriched-copper-ore", enrichedCopperOreIcon)
+            duplicate_recipe_and_replace_ingredient("copper-ore-melting", moltenCopperIcon, "copper-ore", 50, "crushed-copper-ore", crushedCopperOreIcon, 2)
             duplicate_recipe_and_replace_ingredient("tungsten-plate", tungstenPlateIcon, "crushed-tungsten-ore", 8, "ei-enriched-tungsten-ore", enrichedTungstenOreIcon)
             duplicate_recipe_and_replace_ingredient("tungsten-plate", tungstenPlateIcon, "tungsten-ore", 4, "crushed-tungsten-ore", crushedTungstenOreIcon, 2)
         else
-            duplicate_recipe_and_replace_ingredient("molten-iron", moltenIronIcon, "crushed-iron-ore", 75, "ei-enriched-iron-ore", enrichedIronOreIcon)
-            duplicate_recipe_and_replace_ingredient("molten-iron", moltenIronIcon, "iron-ore", 50, "ei-enriched-iron-ore", ironOreIcon, 2)
-            duplicate_recipe_and_replace_ingredient("molten-copper", moltenCopperIcon, "crushed-copper-ore", 75, "ei-enriched-copper-ore", enrichedCopperOreIcon)
-            duplicate_recipe_and_replace_ingredient("molten-copper", moltenCopperIcon, "copper-ore", 50, "ei-enriched-copper-ore", copperOreIcon, 2)
+            duplicate_recipe_and_replace_ingredient("iron-ore-melting", moltenIronIcon, "crushed-iron-ore", 75, "ei-enriched-iron-ore", enrichedIronOreIcon)
+            duplicate_recipe_and_replace_ingredient("iron-ore-melting", moltenIronIcon, "iron-ore", 50, "ei-enriched-iron-ore", ironOreIcon, 2)
+            duplicate_recipe_and_replace_ingredient("copper-ore-melting", moltenCopperIcon, "crushed-copper-ore", 75, "ei-enriched-copper-ore", enrichedCopperOreIcon)
+            duplicate_recipe_and_replace_ingredient("copper-ore-melting", moltenCopperIcon, "copper-ore", 50, "ei-enriched-copper-ore", copperOreIcon, 2)
             duplicate_recipe_and_replace_ingredient("tungsten-plate", tungstenPlateIcon, "crushed-tungsten-ore", 8, "ei-enriched-tungsten-ore", enrichedTungstenOreIcon)
             duplicate_recipe_and_replace_ingredient("tungsten-plate", tungstenPlateIcon, "tungsten-ore", 4, "ei-enriched-tungsten-ore", tungstenOreIcon, 2)
         end
     else
-        duplicate_recipe_and_replace_ingredient("molten-iron", moltenIronIcon, "iron-ore", 50, "crushed-iron-ore", crushedIronOreIcon)
-        duplicate_recipe_and_replace_ingredient("molten-copper", moltenCopperIcon, "copper-ore", 50, "crushed-copper-ore", crushedCopperOreIcon)
+        duplicate_recipe_and_replace_ingredient("iron-ore-melting", moltenIronIcon, "iron-ore", 50, "crushed-iron-ore", crushedIronOreIcon)
+        duplicate_recipe_and_replace_ingredient("copper-ore-melting", moltenCopperIcon, "copper-ore", 50, "crushed-copper-ore", crushedCopperOreIcon)
         duplicate_recipe_and_replace_ingredient("tungsten-plate", tungstenPlateIcon, "tungsten-ore", 4, "crushed-tungsten-ore", crushedTungstenOreIcon)
     end
     duplicate_recipe_and_replace_ingredient("advanced-thruster-oxidizer", "__space-age__/graphics/icons/fluid/thruster-oxidizer.png", "iron-ore", 2, "crushed-iron-ore", crushedIronOreIcon)
@@ -53,7 +49,7 @@ end
 if settings.startup["crushing-industry-concrete-mix"].value then
     local ftech = require("__fdsl__.lib.technology")
     ftech.add_unlock("concrete", "concrete-mix")
-    duplicate_recipe_and_replace_ingredient("concrete-mix", "__crushing-industry__/graphics/icons/fluid/concrete-mix.png", "iron-ore", 1, "crushed-iron-ore", crushedIronOreIcon)
+    duplicate_recipe_and_replace_ingredient("concrete-mix", "__crushing-industry__/graphics/icons/fluid/concrete-mix.png", "stone-brick", 5, "sand", "__crushing-industry__/graphics/icons/sand.png")
 else
     duplicate_recipe_and_replace_ingredient("concrete", "__base__/graphics/icons/concrete.png", "iron-ore", 1, "crushed-iron-ore", crushedIronOreIcon)
 end

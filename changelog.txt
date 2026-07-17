@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.0
+Date: 2026-06-05
+  Features:
+    - Compatability with Factorio 2.1
+  Bugfixes:
+    - Fixed iron and copper ore melting recipes changed names.
+    - Fixed alternate concrete recipe being added when concrete mix setting is enabled but restoring concrete recipes is disabled.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.2
 Date: 2026-02-19
   Features:

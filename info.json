@@ -1,14 +1,14 @@
 {
   "name": "crushing-industry-all-recipes",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "title": "Crushing Industry - All Recipes and Crushers",
   "author": "Averax",
-  "factorio_version": "2.0",
+  "factorio_version": "2.1",
   "description": "Toggleable vanilla recipes restoration for Crushing Industry mod, to allow the player choice of which recipes to use (crushed vs vanilla ores). Also optionally adds all 3 variants (Vanilla, Crushing w/wo Quality) of crushers to choose from. If Muluna is installed, does the same for Crusher 2.",
   "dependencies": [
     "base >= 2.0",
-    "fdsl >= 0.2.2",
-    "crushing-industry >= 0.5.0",
+    "fdsl >= 0.4.0",
+    "crushing-industry >= 0.6.0",
     "? space-age",
     "? planet-muluna",
     "? molten-tungsten",
